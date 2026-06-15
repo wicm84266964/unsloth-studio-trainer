@@ -47,6 +47,34 @@ unsloth-studio-trainer/
 - 本地数据集为 UTF-8 JSONL
 - 如果训练 Qwen3.5，Unsloth Studio 环境中的 `transformers` 需要满足 `>= 5.2.0`
 
+## 给智能体的安装提示词
+
+把下面这段提示词交给 AI 编程智能体，让它自己安装或内化这个工作流，而不是让你
+手动一点点配置：
+
+```text
+请把这个仓库内化为一个 Unsloth Studio 训练工作流。
+
+仓库地址：https://github.com/wicm84266964/unsloth-studio-trainer
+
+请阅读 README.md 和 skills/unsloth-studio-trainer/SKILL.md。如果你的运行环境
+支持可复用 skill 或智能体指令，请把 skills/unsloth-studio-trainer 安装或注册为
+名叫 unsloth-studio-trainer 的 skill。如果不支持，请把 SKILL.md 内化为当前项目
+或当前会话里的长期操作规范。
+
+当你协助我运行 Unsloth Studio 或 Unsloth CLI 微调时：
+- 认为这个工作流已经在 Windows 上跑通。
+- Linux、WSL、macOS 在目标机器复核前都视为未验证。
+- 训练前先探测本机 Unsloth 路径、Python 环境、GPU 可见性和依赖版本。
+- 长任务前必须先做 dry-run 或 1-step smoke test。
+- 对 Windows 已验证的 Qwen3.5 双卡 Studio API 训练，默认使用 gpu_ids=[0,1]
+  和 load_in_4bit=false，除非目标机器复核证明其他配置可用。
+- 不要把数据集、模型输出、checkpoint、日志、缓存、运行状态、API key 或本机
+  运行记录写入仓库。
+- 汇报实际模式、GPU ID、量化设置、最终状态、final step/loss、输出目录、
+  LoRA 产物是否生成，以及失败时的明确失败类型。
+```
+
 ## 使用方式
 
 把 `skills/unsloth-studio-trainer` 安装或复制到你的自动化环境所使用的 skill 目录。

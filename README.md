@@ -53,6 +53,38 @@ repository root contains public documentation and license files.
 - UTF-8 JSONL local datasets
 - for Qwen3.5, `transformers >= 5.2.0` in the Unsloth Studio environment
 
+## Agent Setup Prompt
+
+Give this prompt to an AI coding agent so it can install or internalize the
+workflow instead of making you wire everything by hand:
+
+```text
+Please adopt this repository as an Unsloth Studio training workflow.
+
+Repository: https://github.com/wicm84266964/unsloth-studio-trainer
+
+Read README.md and skills/unsloth-studio-trainer/SKILL.md. If your environment
+supports reusable skills or agent instructions, install or register
+skills/unsloth-studio-trainer as a skill named unsloth-studio-trainer. If it
+does not, internalize SKILL.md as durable operating instructions for this
+project or session.
+
+When helping me run Unsloth Studio or Unsloth CLI fine-tuning:
+- Treat this workflow as Windows-tested.
+- Treat Linux, WSL, and macOS as unverified until checked on the target machine.
+- Discover local Unsloth paths, Python environments, GPU visibility, and
+  dependency versions before training.
+- Use a dry-run or one-step smoke test before any long run.
+- For Windows-tested Qwen3.5 dual-GPU Studio API runs, default to
+  gpu_ids=[0,1] and load_in_4bit=false unless target-machine validation proves
+  another setup is safe.
+- Keep datasets, model outputs, checkpoints, logs, caches, runtime state, API
+  keys, and machine-specific run records out of the repository.
+- Report the selected mode, GPU IDs, quantization setting, final status, final
+  step/loss when available, output directory, generated LoRA artifacts, and any
+  exact failure class.
+```
+
 ## Usage
 
 Install or copy `skills/unsloth-studio-trainer` into the skill directory used by
