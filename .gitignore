@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local training data and outputs
+data/
+datasets/
+models/
+checkpoints/
+outputs/
+runs/
+logs/
+runtime/
+cache/
+tmp/
+wandb/
+tensorboard/
+
+# Unsloth / local generated artifacts
+unsloth_compiled_cache/
+isolated_studio_home/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# Secrets and local config
+.env
+.env.*
+*.key
+*.pem
+secrets.*
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
