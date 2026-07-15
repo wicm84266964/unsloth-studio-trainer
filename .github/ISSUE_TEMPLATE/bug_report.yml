@@ -1,0 +1,72 @@
+name: Bug report
+description: Report a reproducible Unsloth Studio Trainer problem
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use a minimal synthetic dataset. Remove API tokens, private endpoints, training datasets, model weights, runtime configuration, machine paths, GPU identifiers, and personal information.
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: "For example: v1.0.0 or abc1234"
+    validations:
+      required: true
+  - type: dropdown
+    id: workflow
+    attributes:
+      label: Affected workflow
+      options:
+        - CLI dry run
+        - Unsloth Studio API
+        - Single-GPU training
+        - Multi-GPU training
+        - Dataset validation
+        - Monitoring or cleanup
+        - Agent skill
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Runtime environment
+      description: Include the operating system, Python, Unsloth, CUDA, GPU model, and launch method when relevant.
+      placeholder: "Windows 11, Python 3.12, CUDA 12.x, 2 x RTX 4090, Studio API"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide a minimal sanitized payload or command using synthetic data.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Redacted logs or job payload
+      description: Include only the minimum relevant output after removing tokens, paths, datasets, and model artifacts.
+      render: shell
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I searched existing issues for the same problem.
+          required: true
+        - label: I used synthetic data and removed tokens, endpoints, datasets, weights, runtime paths, GPU identifiers, and personal information.
+          required: true
