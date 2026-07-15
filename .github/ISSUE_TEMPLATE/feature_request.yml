@@ -1,0 +1,51 @@
+name: Feature request
+description: Propose a fine-tuning workflow improvement
+title: "[Feature]: "
+body:
+  - type: dropdown
+    id: workflow
+    attributes:
+      label: Training workflow
+      options:
+        - CLI dry run
+        - Unsloth Studio API
+        - Single-GPU training
+        - Multi-GPU training
+        - Dataset validation
+        - Monitoring or cleanup
+        - Agent skill
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Describe the planning, launch, monitoring, or recovery limitation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe the expected result without including private training details.
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Validation and recovery needs
+      description: Explain how dry runs, resource checks, failure recovery, or artifact cleanup should work.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I searched existing issues for a similar request.
+          required: true
+        - label: This request contains no tokens, private endpoints, datasets, weights, runtime paths, GPU identifiers, or personal information.
+          required: true
